@@ -3,3 +3,4 @@ font-family = JetBrainsMono NF
 macos-titlebar-style = hidden
 quick-terminal-animation-duration = 0
 copy-on-select = true
+macos-option-as-alt = true
