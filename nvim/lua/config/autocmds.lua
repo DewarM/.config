@@ -23,7 +23,6 @@ autocmd('LspAttach', {
         })
     end
 })
-
 autocmd('BufEnter', {
     group = vim.api.nvim_create_augroup("ai", { clear = true }),
     callback = function(args)

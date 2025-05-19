@@ -19,7 +19,7 @@ return {
     config = function()
         require("mason").setup()
         require("mason-lspconfig").setup({
-
+            ensure_installed = { "lua_ls", "jsonls", "yamlls", "html" },
             automatic_installation = true
         })
         -- Add cmp_nvim_lsp capabilities settings to lspconfig
@@ -45,6 +45,19 @@ return {
                         provideFormatter = false,
                     },
 
+                }
+            end,
+            ["yamlls"] = function()
+                print("yamlls loaded")
+                require('lspconfig').yamlls.setup {
+                    filetypes = { 'yaml', 'yaml.ghaction' },
+                    settings = {
+                        yaml = {
+                            schemas = {
+                                ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+                            },
+                        },
+                    }
                 }
             end,
             ["html"] = function()
