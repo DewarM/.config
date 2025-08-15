@@ -8,7 +8,7 @@ github:
     # The GitHub base URL to use.
     # Only set this if you use an on-prem enterprise GitHub installation
     # (leave blank if your repo is hosted on github.com)
-    baseUrl: "https://github.skyscannertools.net"
+    # baseUrl: "https://github.skyscannertools.net"
 
 pullRequest:
     # If true, always open PRs as a draft.

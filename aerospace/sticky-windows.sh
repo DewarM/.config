@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 # https://github.com/nikitabobko/AeroSpace/issues/2
 # Largely derivce from user script to support pip windows.
 # This script will auto moves Outlook Reminder windows. 
@@ -33,9 +33,11 @@ move_win() {
   local win_ws=$(echo "$win" | cut -d'|' -f5 | xargs)
 
   local ws=$(echo "$current_ws" | cut -d'|' -f1 | xargs)
-  # Skip if the monitor is already the target monitor or if the workspace matches
-  # [[ $target_mon != "$win_mon" ]] && return 0
+  # Skip if the workspace matches
   [[ $ws == "$win_ws" ]] && return 0
+
+  # Skip if the workspace is is 9 this is likely the built in monitor that I use for zoom only
+  [[ $ws == "9" ]] && return 0
 
   aerospace move-node-to-workspace --window-id "$win_id" "$ws"
 }

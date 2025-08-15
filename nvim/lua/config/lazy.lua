@@ -57,11 +57,6 @@ vim.o.clipboard = "unnamed"
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- folding options, via: https://www.reddit.com/r/neovim/comments/10q2mjq/comment/j6nmuw8/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
-vim.opt.fillchars = { fold = " " }
-vim.opt.foldmethod = "indent"
-vim.opt.foldenable = false
-vim.opt.foldlevel = 99
 -- Setup lazy.nvim
 require("lazy").setup({
     spec = {

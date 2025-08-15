@@ -33,3 +33,12 @@ autocmd('BufEnter', {
         end
     end
 })
+vim.api.nvim_create_autocmd("BufEnter", {
+    callback = function()
+        if vim.opt.foldmethod:get() == "expr" then
+            vim.schedule(function()
+                vim.opt.foldmethod = "expr"
+            end)
+        end
+    end,
+})

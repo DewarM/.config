@@ -8,13 +8,11 @@ return {
         -- FIX: use `autocmd` for lazy-loading nvim-tree instead of directly requiring it,
         -- because `cwd` is not set up properly.
         --
-        print("helloo")
         vim.api.nvim_create_autocmd("BufEnter", {
             group = vim.api.nvim_create_augroup("Nvim-tree_start_directory", { clear = true }),
             desc = "Start nvim-tree with directory",
             once = true,
             callback = function()
-                print("callback")
                 if package.loaded["nvim-tree"] then
                     return
                 else
