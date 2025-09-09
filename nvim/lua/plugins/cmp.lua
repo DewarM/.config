@@ -15,12 +15,14 @@ return {
             end
         }
     },
-    lazy = true,
     config = function()
         local cmp = require('cmp')
         local luasnip = require("luasnip")
 
         cmp.setup({
+            experimental = {
+                ghost_text = false
+            },
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
                 { name = 'nvim_lsp_signature_help' },
@@ -41,13 +43,9 @@ return {
             mapping = cmp.mapping.preset.insert({
                 ['<CR>'] = cmp.mapping(function(fallback)
                     if cmp.visible() then
-                        if luasnip.expandable() then
-                            luasnip.expand()
-                        else
-                            cmp.confirm({
-                                select = true,
-                            })
-                        end
+                        cmp.confirm({
+                            select = true,
+                        })
                     else
                         fallback()
                     end

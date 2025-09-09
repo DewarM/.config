@@ -5,18 +5,9 @@ return {
             { "zbirenbaum/copilot.lua" },                   -- or zbirenbaum/copilot.lua
             { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
         },
+        tag = "v3.12.2",
         enabled = true,
         lazy = true,
-        keys = {
-            {
-                "<leader>aa",
-                function()
-                    local chat = require('CopilotChat')
-                    chat.toggle()
-                end,
-                desc = 'AI Toggle'
-            }
-        },
         build = "make tiktoken", -- Only on MacOS or Linux
 
         config = function()

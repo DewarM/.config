@@ -1,3 +1,11 @@
+local actions = require("telescope.actions")
+
+local open_after_tree = function(prompt_bufnr)
+    vim.defer_fn(function()
+        actions.select_default(prompt_bufnr)
+    end, 100) -- Delay allows filetype and plugins to settle before opening
+end
+
 return {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.8',
@@ -26,7 +34,12 @@ return {
         table.insert(vimgrep_arguments, "!**/.git/*")
         -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#file-and-text-search-in-hidden-files-and-directories
         telescope.setup({
+            -- https://github.com/nvim-treesitter/nvim-treesitter/issues/7952
             defaults = {
+                mappings = {
+                    i = { ["<CR>"] = open_after_tree },
+                    n = { ["<CR>"] = open_after_tree },
+                },
                 -- `hidden = true` is not supported in text grep commands.
                 vimgrep_arguments = vimgrep_arguments,
             },

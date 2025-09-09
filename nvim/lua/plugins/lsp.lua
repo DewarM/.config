@@ -49,12 +49,19 @@ return {
                 }
             }
         })
+        vim.filetype.add({
+            extension = {
+                ejs = 'ejs',
+                handlebars = 'handlebars',
+            }
+        })
         vim.lsp.config("html", {
             filetypes = {
                 "html",
                 "templ",
                 "handlebars",
-                "hbs"
+                "hbs",
+                "ejs"
             }
         })
     end,

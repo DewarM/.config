@@ -29,7 +29,8 @@ autocmd('BufEnter', {
         local buf_type = vim.api.nvim_buf_get_option(args.buf, 'buftype')
         if buf_type == "" then
             local chat = require("CopilotChat")
-            vim.keymap.set({ 'n' }, '<leader>aa', chat.toggle, { desc = 'AI Toggle' })
+            vim.keymap.set({ 'n' }, '<leader>ap', chat.select_prompt, { desc = 'AI Prompt' })
+            vim.keymap.set({ 'n' }, '<leader>aa', chat.open, { desc = 'AI Open' })
         end
     end
 })

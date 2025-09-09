@@ -18,5 +18,6 @@ return {
                 enable = true,
             },
         })
+        vim.treesitter.language.register("html", "ejs")
     end
 }
